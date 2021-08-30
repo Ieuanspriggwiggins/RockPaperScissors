@@ -35,7 +35,7 @@ main{
     flex-direction: row;
 }
 
-#buttons button{
+button{
     padding: 20px;
     width: 200px;
     height: 80px;
@@ -50,14 +50,13 @@ main{
     vertical-align: center;
 }
 
-#buttons button:hover{
+button:hover{
     background-color: var(--background-color);
     border: 2px solid var(--button-bg);
 }
 
-#buttons button img{
-    width: 40px;
-    height: 40px;
+.restart-button-hide{
+    display: none;
 }
 
 @media (max-width: 600px){
