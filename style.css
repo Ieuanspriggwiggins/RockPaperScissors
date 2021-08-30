@@ -3,6 +3,8 @@
 :root{
     --background-color: #394648;
     --text-color: #F8E9E9;
+    --button-bg: #CBAC88;
+    --button-font: #F8E9E9;
 }
 
 body{
@@ -35,9 +37,27 @@ main{
 
 #buttons button{
     padding: 20px;
+    width: 200px;
+    height: 80px;
     cursor: pointer;
     font-size: 1.5em;
     margin: 15px;
+    background-color: var(--button-bg);
+    border: none;
+    color: var(--button-font);
+    border-radius: 5px;
+    transition: ease-in-out 0.1s;
+    vertical-align: center;
+}
+
+#buttons button:hover{
+    background-color: var(--background-color);
+    border: 2px solid var(--button-bg);
+}
+
+#buttons button img{
+    width: 40px;
+    height: 40px;
 }
 
 @media (max-width: 600px){
@@ -49,6 +69,9 @@ main{
     }
     #buttons{
         flex-direction: column;
-        flex-grow: 1;
+    }
+
+    #buttons button{
+        width: auto;
     }
 }
