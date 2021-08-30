@@ -2,6 +2,9 @@
 var computerPlay = "";
 var userPlay = "";
 
+var userScore = 0;
+var computerScore = 0;
+
 //Reference for title play and current scores
 var titlePlay = document.getElementById("play-title");
 var displayUserScore = document.getElementById("player-score");
@@ -30,6 +33,18 @@ ScissorsBtn.addEventListener("click", function() {
     makePlay();
 })
 
+//Restart game on restart button press
+RestartBtn.addEventListener("click", function() {
+    location.reload();
+})
+
+//Disables the buttons
+function disableButtons() {
+    RockBtn.disabled = true;
+    PaperBtn.disabled = true;
+    ScissorsBtn.disabled = true;
+}
+
 //Generates computer choice
 function generateComputerGuess() {
     var x = Math.floor((Math.random() * 3)+1);
@@ -55,22 +70,63 @@ function makePlay() {
         }
         else if(computerPlay == "Scissors"){
             userWinsRound();
+        }else{
+            draw();
         }
+    }
+    else if(userPlay == "Paper"){
+        if(computerPlay == "Rock"){
+            userWinsRound();
+        }
+        else if(computerPlay == "Scissors"){
+            computerWinsRound();
+        }else{
+            draw();
+        }
+    }
+    else if(userPlay == "Scissors"){
+        if(computerPlay == "Paper"){
+            userWinsRound();
+        }
+        else if(computerPlay == "Rock"){
+            computerWinsRound();
+        }else{
+            draw();
+        }
+    }
+
+    if(userScore > 4 || computerScore > 4){
+        endGame();
     }
 }
 
 //If computer wins round
 function computerWinsRound() {
-
+    titlePlay.innerHTML = "You chose " + userPlay + ", Computer chose " + computerPlay + ", Computer wins this round!";
+    computerScore++; 
+    displayComputerScore.innerHTML = computerScore;
 }
 
 //If user wins round
 function userWinsRound() {
-
+    titlePlay.innerHTML = "You chose " + userPlay + ", Computer chose " + computerPlay + ", You win this round!";
+    userScore++;
+    displayUserScore.innerHTML = userScore;
 }
 
 //If draw
 function draw() {
-    
+    titlePlay.innerHTML = "You both chose " + userPlay + " this rounds a draw! No points awarded";
+}
+
+//Ends game
+function endGame() {
+    disableButtons();
+    if(userScore > computerScore) {
+        titlePlay.innerHTML = "You won the game! Press the restart button to play again!";
+    }else{
+        titlePlay.innerHTML = "You lost the game! Press the restart button to play again!";
+    }
+    RestartBtn.classList.toggle("restart-button-hide");
 }
 
