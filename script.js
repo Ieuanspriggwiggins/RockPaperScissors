@@ -32,11 +32,45 @@ ScissorsBtn.addEventListener("click", function() {
 
 //Generates computer choice
 function generateComputerGuess() {
-    
+    var x = Math.floor((Math.random() * 3)+1);
+    switch(x){
+        case 1:
+            computerPlay = "Rock";
+            break;
+        case 2:
+            computerPlay = "Paper";
+            break;
+        case 3:
+            computerPlay = "Scissors";
+            break;        
+    }
 }
 
 //Processes the users play
 function makePlay() {
+    generateComputerGuess();
+    if(userPlay == "Rock"){
+        if(computerPlay == "Paper"){
+            computerWinsRound();
+        }
+        else if(computerPlay == "Scissors"){
+            userWinsRound();
+        }
+    }
+}
 
+//If computer wins round
+function computerWinsRound() {
+
+}
+
+//If user wins round
+function userWinsRound() {
+
+}
+
+//If draw
+function draw() {
+    
 }
 
