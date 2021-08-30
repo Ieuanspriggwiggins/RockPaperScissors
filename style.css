@@ -19,12 +19,13 @@ body{
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+
 main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 50px;
     color: var(--text-color);
     font-family: 'Roboto', sans-serif;
 }
@@ -61,10 +62,10 @@ button:hover{
 
 @media (max-width: 600px){
     #page-title{
-        font-size: 2em;
+        font-size: 1em;
     }
     main{
-        margin-top: 100px;
+        margin-top: 10px;
     }
     #buttons{
         flex-direction: column;
