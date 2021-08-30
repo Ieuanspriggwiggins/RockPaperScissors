@@ -40,7 +40,10 @@ main{
     margin: 15px;
 }
 
-@media only screen and (max-width: 600px){
+@media (max-width: 600px){
+    #page-title{
+        font-size: 2em;
+    }
     #buttons{
         flex-direction: column;
         flex-grow: 1;
