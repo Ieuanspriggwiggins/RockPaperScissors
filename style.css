@@ -44,6 +44,9 @@ main{
     #page-title{
         font-size: 2em;
     }
+    main{
+        margin-top: 100px;
+    }
     #buttons{
         flex-direction: column;
         flex-grow: 1;
